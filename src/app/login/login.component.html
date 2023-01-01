@@ -1,0 +1,42 @@
+<div class="form">
+  <h1>Template Driven Form </h1>
+  <form #loginForm="ngForm">
+    {{loginForm.value | json}}
+    <div class="form-group">
+      <label>First Name:</label>
+      <input type="text" required #name class="form-control" name="firstName" ngModel>
+      {{name.className}}
+    </div>
+    <div class="form-group">
+      <label>Last Name:</label>
+      <input type="text" class="form-control" name="lastName" ngModel>
+    </div>
+    <div class="form-group">
+      <label>Address:</label>
+      <select class="custom-select"  name="address" ngModel>
+        <option selected>Choose address</option>
+     <option *ngFor="let address of address">{{address}}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Email:</label>
+      <input type="email" class="form-control" name="email" ngModel>
+    </div>
+    <div>
+    <label for="gender">Gender:</label>
+    <div class="form-check">
+      <input class="form-chek-input" type="radio" name="gender" >
+        <label class="form-check-label">Male</label>
+    </div>
+      <div class="form-check">
+        <input class="form-chek-input" type="radio" name="gender">
+        <label class="form-check-label">Female</label>
+      </div>
+      <div class="form-check">     
+           <input class="form-chek-input" type="radio" name="gender">
+        <label class="form-check-label">Others</label>
+    </div>
+    </div>
+    <button class="btn btn-promary" type="submit">Submit</button>
+  </form>
+</div>
