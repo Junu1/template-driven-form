@@ -18,12 +18,12 @@ export class LoginComponent {
     'Female'
   );
 
-  onSubmit() {
-    this.loginService.enroll(this.loginModel)
+  onSubmit(loginForm) {
+    this.loginService.enroll(this.loginModel);
     // .subscribe(
     //   data => console.log("Success",data),
     //   error => console.log("Error",error)
     // )
-    console.log(this.loginModel);
+    console.log(loginForm);
   }
 }

@@ -1,6 +1,6 @@
 <div class="form">
   <h1>Template Driven Form </h1>
-  <form #loginForm="ngForm" novalidate (ngSubmit)="onSubmit()">
+  <form #loginForm="ngForm" novalidate (ngSubmit)="onSubmit(loginForm)">
     {{loginForm.value | json}}
     <div class="form-group">
       <label>First Name:</label>
