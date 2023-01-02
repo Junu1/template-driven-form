@@ -1,15 +1,16 @@
 <div class="form">
   <h1>Template Driven Form </h1>
-  <form #loginForm="ngForm">
+  <form #loginForm="ngForm" novalidate (ngSubmit)="onSubmit()">
     {{loginForm.value | json}}
     <div class="form-group">
       <label>First Name:</label>
-      <input type="text" required #name class="form-control" name="firstName" ngModel>
-      {{name.className}}
+      <input type="text" required #name="ngModel" class="form-control" name="firstName" [class.is-invalid]="name.valid && name.touched"
+      [(ngModel)]="loginModel.firstName">
     </div>
     <div class="form-group">
       <label>Last Name:</label>
-      <input type="text" class="form-control" name="lastName" ngModel>
+      <input type="text" class="form-control" name="lastName" #name="ngModel" 
+      [(ngModel)]="loginModel.lastName" >
     </div>
     <div class="form-group">
       <label>Address:</label>
@@ -37,6 +38,6 @@
         <label class="form-check-label">Others</label>
     </div>
     </div>
-    <button class="btn btn-promary" type="submit">Submit</button>
+    <button [disabled]="loginForm.form.invalid" class="btn btn-promary" type="submit">Submit</button>
   </form>
 </div>
